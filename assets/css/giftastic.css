@@ -3,16 +3,18 @@
     margin-right: 2%;
     margin-left: 2%;
     width: 85%;
-    margin-top: 0.5%;
-    margin-bottom: 0.5%;
+    margin-top: 1%;
+    margin-bottom: 1%;
     font-size: 16px;
     border-radius: 10px;
 }
 
 #field::placeholder {
     font-weight: bold;
+    font-size: 20px;
     color: lightgrey;
 }
+
 #input {
     color: black;
     display: flex;
@@ -27,7 +29,7 @@
 }
 
 
-#icon {
+#searchIcon {
     color: yellowgreen;
     -webkit-text-stroke: 2px darkgreen;
     font-size: 36px;
@@ -40,12 +42,73 @@
     margin-bottom: 1%;
     border: 1px solid darkgreen;
     border-radius: 5px;
-    padding: 0.5%;
+    padding: 1%;
     background-color: #c7ee97;
     box-shadow: 2px 2px darkseagreen;
+    font-size: 16px;
+}
+
+.buttons:hover {
+    background-color: #95d04c;
+    box-shadow: 2px 2px rgb(67, 126, 67);
+    /* font-weight: bold; */
 }
 
 #recent {
     margin: 5%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
+}
+
+#page {
+    margin: 5%; 
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin-left: 5%;
+    position: relative;
+    /* justify-content: space-evenly; */
+}
+
+.imageBox {
+    /* border: 1px solid black; */
+    width: 360px;
+    height: 340px;
+    position: relative;
+    margin-bottom: 2%;
+    margin-right: 5%;
+}
+
+.image {
+    width: 300px;
+    height: 300px;
+    margin-right: 3%;
+    margin-bottom: 3%;
+    border: 1px solid darkgreen;
+    border-radius: 10px;
+    box-shadow: 2px 2px darkseagreen;
+    float: left;
+}
+
+.icons {
+    color: yellowgreen;
+    -webkit-text-stroke: 2px darkgreen;
+    font-size: 28px;
+    /* text-shadow: 1px 1px darkseagreen; */
+    margin-top: 10px;
+    margin-right: 1%;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    /* float: right; */
+    /* display: block; */
+}
+
+#rating {
+    float: left;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#favorites {
+    border: 1px black solid;
+    float: right;
 }
