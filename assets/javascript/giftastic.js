@@ -5,7 +5,7 @@ $(document).ready(function () {
         $("#recent").append(topicButton);
     }
 
-    let topicsArr = ["antibiotic", "experiment", "cell", "photosynthesis", "chemical reaction", "copper", "DNA", "element", "anatomy", "brain"];
+    let topicsArr = ["antibiotic", "experiment", "cell", "photosynthesis", "chemical reaction", "copper", "DNA", "element", "anatomy", "brain", "bacteria", "muscles"];
     // let topic = $("#field").val().toLowerCase();
     for (let i = 0; i < topicsArr.length; i++) {
         topic = topicsArr[i];
