@@ -6,7 +6,7 @@ $(document).ready(function () {
     }
 
     let topicsArr = ["antibiotic", "experiment", "cell", "photosynthesis", "chemical reaction", "copper", "DNA", "element", "anatomy", "brain", "bacteria", "muscles"];
-    // let topic = $("#field").val().toLowerCase();
+    
     for (let i = 0; i < topicsArr.length; i++) {
         topic = topicsArr[i];
         generatesButtons(topic);
@@ -47,8 +47,7 @@ $(document).ready(function () {
         }
     });
 
-    // let gifStatus = "static";
-    // let idObj = {};
+   
 
     $("#recent").on("click", ".buttons", function(e) {
         e.preventDefault();
@@ -58,20 +57,18 @@ $(document).ready(function () {
             url: queryURL,
             method: "GET"
         }).then(function (response) {
+            let favTitle = $("<h1 id='favTitle'>Favorites</h1>");
+            $("#favorites").append(favTitle);
             for (let i = 0; i < 10; i++) {
-                // idObj[response.data[i].id] = i;
-        
                 let gifImage = $("<img class='image static' data-gif='" + response.data[i].images.original.url + "' data-still='" + response.data[i].images.original_still.url + "' src='" + response.data[i].images.original_still.url + "'>");
                 let imageBox = $("<div class='imageBox'></div>");
-                let downloadIcon = $("<i class='fa-solid fa-arrow-down icons'></i>");
                 let heartIcon = $("<i class='fa-regular fa-heart icons'></i>");
                 let rating = $("<p id='rating'> Rating: " + response.data[i].rating + "</p>");
                 
-                $(imageBox).append(gifImage);
-                $(imageBox).append(downloadIcon);
-                $(imageBox).append(heartIcon);
-                $(imageBox).append(rating);
-                $("#page").append(imageBox);
+                imageBox.append(gifImage);
+                imageBox.append(heartIcon);
+                imageBox.append(rating);
+                $("#gifPage").append(imageBox);
             
 
             gifImage.on("click", function(e) {
@@ -88,9 +85,24 @@ $(document).ready(function () {
                     $(this).attr("src", stillImage);
                 }
             })
+
+
+            imageBox.on("click", heartIcon, function () {
+                let favGifImage = gifImage.clone();
+                favGifImage.addClass("loved");
+                let animatedGif = $(gifImage).attr("data-gif");
+                favGifImage.attr("src", animatedGif);
+                $("#favorites").append(favGifImage);
+                
+            })
+        
         }
-        })
+
+        
+    })
+
     
     })
+
 
 })
