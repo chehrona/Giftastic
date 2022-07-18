@@ -70,36 +70,39 @@ $(document).ready(function () {
                 imageBox.append(rating);
                 $("#gifPage").append(imageBox);
             
+                // Clicking the image animates or stops the gifs based on the current status. URLs for static and animated gifs are stored as an 
+                // attribute within the gifImage. 
 
-            gifImage.on("click", function(e) {
-                e.preventDefault();
-                let animatedGif = $(this).attr("data-gif");
-                let stillImage = $(this).attr("data-still");
-                if ($(this).hasClass("static")) {
-                    $(this).removeClass("static");
-                    $(this).addClass("animated");
-                    $(this).attr("src", animatedGif);
-                } else {
-                    $(this).removeClass("animated");
-                    $(this).addClass("static");
-                    $(this).attr("src", stillImage);
-                }
-            })
+                gifImage.on("click", function(e) {
+                    e.preventDefault();
+                    let animatedGif = $(this).attr("data-gif");
+                    let stillImage = $(this).attr("data-still");
+                    if ($(this).hasClass("static")) {
+                        $(this).removeClass("static");
+                        $(this).addClass("animated");
+                        $(this).attr("src", animatedGif);
+                    } else {
+                        $(this).removeClass("animated");
+                        $(this).addClass("static");
+                        $(this).attr("src", stillImage);
+                    }
+                })
 
+                // Clicking the heart icon, clones its associated GIF image and displays an animated, miniturized version of it under favorites. 
 
-            imageBox.on("click", heartIcon, function () {
-                let favGifImage = gifImage.clone();
-                favGifImage.addClass("loved");
-                let animatedGif = $(gifImage).attr("data-gif");
-                favGifImage.attr("src", animatedGif);
-                $("#favorites").append(favGifImage);
-                
-            })
+                heartIcon.on("click", function () {
+                    let favGifImage = gifImage.clone();
+                    favGifImage.addClass("loved");
+                    let animatedGif = $(gifImage).attr("data-gif");
+                    favGifImage.attr("src", animatedGif);
+                    $("#favorites").append(favGifImage);
+                    
+                })
         
-        }
+            }
 
         
-    })
+        })
 
     
     })
